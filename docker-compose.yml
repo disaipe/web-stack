@@ -1,0 +1,48 @@
+version: '3.0'
+
+services:
+
+  nginx:
+    image: nginx
+    container_name: ${APP_NAME}-nginx
+    depends_on:
+      - php
+    volumes:
+      - ./etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www/html
+    ports:
+      - ${NGINX_PORT}:80
+    environment:
+      - NGINX_HOST=${NGINX_HOST}
+
+  php:
+    build:
+      context: ./etc/php
+      args:
+        VERSION: ${PHP_VERSION}
+    container_name: ${APP_NAME}-php
+    volumes:
+      - ./etc/php/php.ini:/usr/local/etc/php/php.ini
+      - ./src:/var/www/html
+  
+  mariadb:
+    image: mariadb:${DB_VERSION}
+    container_name: ${APP_NAME}-mariadb
+    volumes:
+      - ./etc/mariadb/conf.d:/etc/mysql/conf.d
+      - ./data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+
+  adminer:
+    image: adminer
+    container_name: ${APP_NAME}-adminer
+    depends_on:
+      - mariadb
+    ports:
+      - ${DB_ADMINER_PORT}:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: mariadb
