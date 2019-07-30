@@ -44,14 +44,9 @@ docker-compose up -d adminer
 ## Configure
 By default, stack are ready  to basic work, but you can edit your configuration for each service.
 
-After changes you need stop and recreate changed containers, e.g.:
-```bash
-docker-compose stop
-docker-compose rm -f nginx
-docker-compose up -d nginx
-```
 
 #### Compose environment
+
 Environment file helps to configure services base options:
 - APP_NAME - application name, uses as prefix for services containers names
 - HTTP_PORT - public port for chosen web server
@@ -65,8 +60,23 @@ Environment file helps to configure services base options:
 - DB_PASSWORD - database user password
 - DB_ADMINER_PORT - public port for adminer
 
+If you changes environment after service start, you need stop and rebuild changed containers, e.g.:
+```bash
+docker-compose stop
+docker-compose rm php
+docker-compose build php
+docker-compose start -p lemp
+```
+
 #### Configuration files
 You can edit services configuration files as you wish.
+
+After changes you need stop and recreate changed containers, e.g.:
+```bash
+docker-compose stop
+docker-compose rm -f nginx
+docker-compose up -d nginx
+```
 
 Service | Configuration files
 -|-
