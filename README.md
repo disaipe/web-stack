@@ -14,6 +14,13 @@ Docker-compose script what runs basic LEMP or LAMP stack with single command lin
 
 \* *optional service*
 
+## Installation
+
+```bash
+git clone https://github.com/disaipe/web-stack.git my-site
+cd my-site
+```
+
 ## Usage example
 
 Before working create and edit `.env` file
@@ -37,9 +44,21 @@ docker-compose up -d lamp
 
 #### Optional services
 To start optional service, e.g. *adminer* (it will be available on http://hostname:8081 by default)
-```basj
+```bash
 docker-compose up -d adminer
 ```
+
+## Predefined CMS
+
+You can to install some CMS very fast and very easy - just switch to CMS branch and start installation script:
+```bash
+git checkout bitrix
+./install.sh
+```
+
+Supported CMS:
+- [x] [Bitrix](https://www.1c-bitrix.ru/)
+- [x] [Evolution CMS](https://evo.im/)
 
 ## Configure
 By default, stack are ready  to basic work, but you can edit your configuration for each service.
@@ -71,11 +90,10 @@ docker-compose start -p lemp
 #### Configuration files
 You can edit services configuration files as you wish.
 
-After changes you need stop and recreate changed containers, e.g.:
+After changes you need restart changed containers, e.g.:
 ```bash
 docker-compose stop
-docker-compose rm -f nginx
-docker-compose up -d nginx
+docker-compose restart nginx
 ```
 
 Service | Configuration files
