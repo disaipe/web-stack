@@ -2,30 +2,18 @@
 
 echo "Evolution CMS installation script"
 echo
-echo "This will destroy all data in ./data and ./src/public folders"
 
-read -r -p "Are you sure [y/N]" response
-
-case "$response" in
-	[yY]) ;;
-	*) exit 0
-esac
+source wipe.sh
 
 # load environment
 set -o allexport
 [[ -f .env ]] && source .env
 set +o allexport
 
-echo
-
-# remove old data
-echo "Removing previous installations..."
-rm -rf data/*
-rm -rf src/public/*
-
-# download and extract evolution cms
+# download and extract cms
 EVOCMS_VERSION="1.4.9"
 
+echo
 echo "Downloading distribution kit..."
 curl -Ls "https://github.com/evolution-cms/evolution/archive/$EVOCMS_VERSION.tar.gz" --output src/distr.tar.gz
 
