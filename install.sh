@@ -17,7 +17,7 @@ else
     url="https://wordpress.org/latest.tar.gz"
 fi
 
-# download and extract evolution cms
+# download and extract cms
 echo
 echo "Downloading distribution kit..."
 curl -Ls ${url} --output src/distr.tar.gz
