@@ -2,21 +2,13 @@
 
 echo "Bitrix installation script"
 echo
-echo "This will destroy all data in ./data and ./src/public folders"
 
-read -r -p "Are you sure [y/N]" response
-
-case "$response" in
-    [yY]) ;;
-    *) exit 0
-esac
+source wipe.sh
 
 # load environment
 set -o allexport
 [[ -f .env ]] && source .env
 set +o allexport
-
-echo
 
 # remove old data
 echo "Removing previous installations..."
@@ -24,6 +16,7 @@ rm -rf data/*
 rm -rf src/public/*
 
 # download setup script
+echo
 echo "Donwloading installation script..."
 curl -Ls http://www.1c-bitrix.ru/download/scripts/bitrixsetup.php --output src/public/setup.php
 
