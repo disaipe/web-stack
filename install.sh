@@ -2,26 +2,13 @@
 
 echo "Wordpress installation script"
 echo
-echo "This will destroy all data in ./data and ./src/public folders"
 
-read -r -p "Are you sure [y/N]" response
-
-case "$response" in
-	[yY]) ;;
-	*) exit 0
-esac
+source wipe.sh
 
 # load environment
 set -o allexport
 [[ -f .env ]] && source .env
 set +o allexport
-
-echo
-
-# remove old data
-echo "Removing previous installations..."
-rm -rf data/*
-rm -rf src/public/*
 
 if [[ "$1" == "ru" ]]; then
     echo "Setting up RU locale..."
@@ -31,6 +18,7 @@ else
 fi
 
 # download and extract evolution cms
+echo
 echo "Downloading distribution kit..."
 curl -Ls ${url} --output src/distr.tar.gz
 
