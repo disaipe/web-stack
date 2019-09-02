@@ -35,10 +35,6 @@ chmod -R 777 src/public/assets/cache \
 	src/public/assets/.thumbs \
 	src/public/assets/export
 
-echo "Creating config file..."
-touch src/public/manager/includes/config.inc.php
-chmod 666 src/public/manager/includes/config.inc.php
-
 echo "Installation complete"
 echo
 echo "Now you can start services and open your site in browser: http://$HOSTNAME:$HTTP_PORT"
