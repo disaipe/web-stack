@@ -20,4 +20,12 @@ docker-compose -d lamp
 	- **Password**: *DB_USER_PASSWORD* value
 	- **Database**: *DB_DATABASE* value
 6. Create admin user and choose template
-7. Evolution CMS ready to work!
+7. On *"Check before installation"* page create empty configuration file:
+```bash
+sudo ./create_config.sh
+```
+8. After installation run script:
+```bash
+sudo ./post_install.sh
+```
+9. Evolution CMS ready to work!
