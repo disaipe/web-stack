@@ -1,3 +1,6 @@
 data/
 src/
+src/public/*
 .env
+
+!src/public/.gitkeep
