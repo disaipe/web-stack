@@ -20,4 +20,6 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+EXPOSE 9000
+
 WORKDIR /var/www/html

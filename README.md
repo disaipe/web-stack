@@ -17,9 +17,9 @@ docker-compose -d lamp
 3. Open configured address in your browser, e.g. http://localhost:5001
 4. You must see Wordpress installation page
 5. On database options page set up you MariaDB connection from `.env` file and continue installation
-	- **Server**: mariadb
-	- **User**: *DB_USER* value
+	- **Database Name**: *DB_DATABASE* value
+	- **Username**: *DB_USER* value
 	- **Password**: *DB_USER_PASSWORD* value
-	- **Database**: *DB_DATABASE* value
-6. Create admin user and choose template
+	- **Database Host**: mariadb
+6. Set site title and create admin user
 7. Wordpress ready to work!
