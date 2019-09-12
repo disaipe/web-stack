@@ -9,6 +9,8 @@ services:
       - httpd
       - php
       - mariadb
+    networks:
+      - back
 
   lemp:
     image: alpine:latest
@@ -17,6 +19,8 @@ services:
       - nginx
       - php
       - mariadb
+    networks:
+      - back
 
   nginx:
     image: nginx
@@ -30,6 +34,9 @@ services:
       - ${HTTP_PORT}:80
     environment:
       - NGINX_HOST=${HTTP_HOST}
+    networks:
+      - front
+      - back
 
   httpd:
     image: httpd:${HTTPD_VERSION} 
@@ -44,6 +51,9 @@ services:
       - ${HTTP_PORT}:80
     environment:
       - HTTP_HOST=${HTTP_HOST}
+    networks:
+      - front
+      - back
 
   php:
     build:
@@ -54,6 +64,8 @@ services:
     volumes:
       - ./etc/php/php.ini:/usr/local/etc/php/php.ini
       - ./src:/var/www/html
+    networks:
+      - back
   
   mariadb:
     image: mariadb:${DB_VERSION}
@@ -66,6 +78,8 @@ services:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - back
 
   adminer:
     image: adminer
@@ -76,10 +90,9 @@ services:
       - ${DB_ADMINER_PORT}:8080
     environment:
       ADMINER_DEFAULT_SERVER: mariadb
+    networks:
+      - back
 
-#networks:
-#  default:
-#    ipam:
-#      driver: default
-#      config:
-#        - subnet: 10.10.1.0/24
+networks:
+  front:
+  back:
