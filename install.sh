@@ -35,6 +35,9 @@ chmod -R 777 src/public/assets/cache \
 	src/public/assets/.thumbs \
 	src/public/assets/export
 
+echo "Patch mcpuk..."
+sed -i 's/_.kuki.domain/\/\/_.kuki.domain/' src/public/manager/media/browser/mcpuk/tpl/tpl_javascript.php
+
 echo "Installation complete"
 echo
 echo "Now you can start services and open your site in browser: http://$HOSTNAME:$HTTP_PORT"
