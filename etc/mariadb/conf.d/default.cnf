@@ -5,3 +5,4 @@ transaction-isolation = READ-COMMITTED
 innodb_flush_log_at_trx_commit = 2
 innodb_buffer_pool_size = 512M
 sql_mode=""
+default_time_zone = '+03:00'
