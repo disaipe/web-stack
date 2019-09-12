@@ -11,5 +11,6 @@ case $response in
 		;;
 	*) 
 		echo "Clean canceled"
+		exit 0
 		;;
 esac
