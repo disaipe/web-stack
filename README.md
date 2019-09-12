@@ -9,7 +9,7 @@ Docker-compose script what runs basic LEMP or LAMP stack with single command lin
 |[nginx](https://hub.docker.com/_/nginx "nginx on docker hub")|+| |
 |[httpd](https://hub.docker.com/_/httpd "httpd on docker hub")| |+|
 |[php-fpm](https://hub.docker.com/_/php "php-fpm on docker hub")|+|+|
-|[mariadb on docker hub](https://hub.docker.com/_/mariadb "mariadb on docker hub")|+|+|
+|[mariadb](https://hub.docker.com/_/mariadb "mariadb on docker hub")|+|+|
 |\**[adminer](https://hub.docker.com/_/adminer "adminer on docker hub")*| | |
 
 \* *optional service*
@@ -59,6 +59,7 @@ git checkout bitrix
 Supported CMS:
 - [x] [Bitrix](https://www.1c-bitrix.ru/)
 - [x] [Evolution CMS](https://evo.im/)
+- [x] [Wordpress](https://wordpress.org/)
 
 ## Configure
 By default, stack are ready  to basic work, but you can edit your configuration for each service.
