@@ -1,6 +1,7 @@
 data/
-src/
+src/*
 src/public/*
 .env
 
+!src/public
 !src/public/.gitkeep
