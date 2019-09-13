@@ -10,8 +10,10 @@ Docker-compose script what runs web application stack with few command lines!
 |[httpd](https://hub.docker.com/_/httpd "httpd on docker hub")|Apache web server|
 |[php-fpm](https://hub.docker.com/_/php "php-fpm on docker hub")|PHP FPM version|
 |[mariadb](https://hub.docker.com/_/mariadb "mariadb on docker hub")|SQL database|
-|[express](https://www.npmjs.com/package/express-generator)|Basic NodeJS Express application template|
-|\**[adminer](https://hub.docker.com/_/adminer "adminer on docker hub")*|Simple database management Web UI|
+|[mongo](https://hub.docker.com/_/mongo "mongo on docker hub")|Document database|
+|[express](https://www.npmjs.com/package/express-generator "express-generator on npm")|Basic NodeJS Express application template|
+|\**[adminer](https://hub.docker.com/_/adminer "adminer on docker hub")*|Simple SQL database management Web UI|
+|\**[mongo-express](https://hub.docker.com/_/mongo-express "mongo-express on docker hub")* |Simple document database management Web UI|
 
 \* *optional service*
 
@@ -88,12 +90,16 @@ Environment file helps to configure services base options:
 - HTTPD_VERSION - httpd version from hub tags (*latest* as default)
 - PHP_VERSION - php version from hub tags
 - NODE_VERSION - NodeJS version from hub tags
-- MARIADB_VERSION - mariadb varsion from hub tags
+- MARIADB_VERSION - mariadb version from hub tags
 - MARIADB_ROOT_PASSWORD - default root password for mariadb
 - MARIADB_DATABASE - database name
 - MARIADB_USER - database user name
 - MARIADB_PASSWORD - database user password
 - MARIADB_ADMINER_PORT - public port for adminer
+- MONGODB_VERSION - mongodb version from hub tags
+- MONGODB_ROOT_NAME - mongodb username
+- MONGODB_ROOT_PASSWORD - mongodb user password
+- MONGODB_EXPRESS_PORT - public port for mongo-express
 
 If you changes environment after service start, you need stop and rebuild changed containers, e.g.:
 ```bash
@@ -118,4 +124,3 @@ docker-compose restart nginx
 |httpd|etc/httpd/httpd.conf<br>etc/httpd/conf.d/vhosts.conf|
 |php|etc/php/php.ini|
 |mariadb|etc/mariadb/conf.d/default.cnf|
-|adminer|*nothing to configure*|

@@ -81,6 +81,31 @@ services:
     networks:
       - back
 
+  mongodb:
+    image: mongo:${MONGODB_VERSION}
+    container_name: ${APP_NAME}-mongodb
+    volumes:
+      - ./data/mongodb:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_ROOT_NAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_ROOT_PASSWORD}
+    networks:
+      - back
+
+  mongo-express:
+    image: mongo-express
+    container_name: ${APP_NAME}-mongo-express
+    depends_on:
+      - mongodb
+    ports:
+      - ${MONGODB_EXPRESS_PORT}:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGODB_ROOT_NAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGODB_ROOT_PASSWORD}
+    networks:
+      - back
+
   adminer:
     image: adminer
     container_name: ${APP_NAME}-adminer
