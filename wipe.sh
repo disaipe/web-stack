@@ -9,6 +9,7 @@ case $response in
 		rm -rf data/*
 		rm -rf src/*
 		mkdir src/public
+		chmod 777 src/public
 		;;
 	*) 
 		echo "Clean canceled"
