@@ -87,6 +87,7 @@ services:
     volumes:
       - ./data/mongodb:/data/db
     environment:
+      MONGO_INITDB_DATABASE: ${MONGODB_DATABASE}
       MONGO_INITDB_ROOT_USERNAME: ${MONGODB_ROOT_NAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_ROOT_PASSWORD}
     networks:

@@ -99,6 +99,7 @@ Environment file helps to configure services base options:
 - MONGODB_VERSION - mongodb version from hub tags
 - MONGODB_ROOT_NAME - mongodb username
 - MONGODB_ROOT_PASSWORD - mongodb user password
+- MONGO_INITDB_DATABASE - mongodb database name
 - MONGODB_EXPRESS_PORT - public port for mongo-express
 
 If you changes environment after service start, you need stop and rebuild changed containers, e.g.:
