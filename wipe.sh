@@ -7,7 +7,9 @@ case $response in
 	[yY]) 
 		echo "Removing previous installations..."
 		rm -rf data/*
-		rm -rf src/public/*
+		rm -rf src/*
+		mkdir src/public
+		chmod 777 src/public
 		;;
 	*) 
 		echo "Clean canceled"
