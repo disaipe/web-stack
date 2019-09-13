@@ -88,12 +88,12 @@ Environment file helps to configure services base options:
 - HTTPD_VERSION - httpd version from hub tags (*latest* as default)
 - PHP_VERSION - php version from hub tags
 - NODE_VERSION - NodeJS version from hub tags
-- DB_VERSION - mariadb varsion from hub tags
-- DB_ROOT_PASSWORD - default root password for mariadb
-- DB_DATABASE - database name
-- DB_USER - database user name
-- DB_PASSWORD - database user password
-- DB_ADMINER_PORT - public port for adminer
+- MARIADB_VERSION - mariadb varsion from hub tags
+- MARIADB_ROOT_PASSWORD - default root password for mariadb
+- MARIADB_DATABASE - database name
+- MARIADB_USER - database user name
+- MARIADB_PASSWORD - database user password
+- MARIADB_ADMINER_PORT - public port for adminer
 
 If you changes environment after service start, you need stop and rebuild changed containers, e.g.:
 ```bash
