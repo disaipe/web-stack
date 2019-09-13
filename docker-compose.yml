@@ -31,9 +31,9 @@ services:
       - ./etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
       - ./src:/var/www/html
     ports:
-      - ${HTTP_PORT}:80
+      - "${HTTP_PORT}:80"
     environment:
-      - NGINX_HOST=${HTTP_HOST}
+      NGINX_HOST: ${HTTP_HOST}
     networks:
       - front
       - back
@@ -48,9 +48,9 @@ services:
       - ./etc/httpd/conf.d:/usr/local/apache2/conf/conf.d
       - ./src:/var/www/html
     ports:
-      - ${HTTP_PORT}:80
+      - "${HTTP_PORT}:80"
     environment:
-      - HTTP_HOST=${HTTP_HOST}
+      HTTP_HOST: ${HTTP_HOST}
     networks:
       - front
       - back
@@ -98,7 +98,7 @@ services:
     depends_on:
       - mongodb
     ports:
-      - ${MONGODB_EXPRESS_PORT}:8081
+      - "${MONGODB_EXPRESS_PORT}:8081"
     environment:
       ME_CONFIG_MONGODB_SERVER: mongodb
       ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGODB_ROOT_NAME}
@@ -112,7 +112,7 @@ services:
     depends_on:
       - mariadb
     ports:
-      - ${MARIADB_ADMINER_PORT}:8080
+      - "${MARIADB_ADMINER_PORT}:8080"
     environment:
       ADMINER_DEFAULT_SERVER: mariadb
     networks:
@@ -125,7 +125,7 @@ services:
         VERSION: ${NODE_VERSION}
     container_name: ${APP_NAME}-express
     ports:
-      - ${HTTP_PORT}:3000
+      - "${HTTP_PORT}:3000"
     volumes:
       - ./src:/app
     environment:
