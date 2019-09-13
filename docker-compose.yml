@@ -93,6 +93,23 @@ services:
     networks:
       - back
 
+  express:
+    build:
+      context: ./etc/express
+      args:
+        VERSION: ${NODE_VERSION}
+    container_name: ${APP_NAME}-express
+    ports:
+      - ${HTTP_PORT}:3000
+    volumes:
+      - ./src:/app
+    environment:
+      EXPRESS_VIEW_ENGINE: pug
+      EXPRESS_STYLE_ENGINE: sass
+    networks:
+      - front
+      - back
+
 networks:
   front:
   back:
