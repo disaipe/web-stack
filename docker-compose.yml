@@ -72,7 +72,7 @@ services:
     container_name: ${APP_NAME}-mariadb
     volumes:
       - ./etc/mariadb/conf.d:/etc/mysql/conf.d
-      - ./data:/var/lib/mysql
+      - ./data/mariadb:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DB_DATABASE}
