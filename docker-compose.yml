@@ -89,7 +89,6 @@ services:
       - ./etc/mongo/initdb:/docker-entrypoint-initdb.d
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGODB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_ROOT_NAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_ROOT_PASSWORD}
       MONGO_APP_DATABASE: ${MONGODB_DATABASE}
       MONGO_APP_USERNAME: ${MONGODB_USERNAME}
@@ -139,6 +138,28 @@ services:
     environment:
       EXPRESS_VIEW_ENGINE: pug
       EXPRESS_STYLE_ENGINE: sass
+    networks:
+      - front
+      - back
+
+  strapi:
+    image: strapi/strapi
+    container_name: ${APP_NAME}-strapi
+    depends_on:
+      - mongodb
+    ports:
+      - "${STRAPI_PORT}:1337"
+    volumes:
+      - ./data/strapi:/usr/src/api/strapi-app
+    environment:
+      DATABASE_CLIENT: mongo
+      DATABASE_HOST: mongodb
+      DATABASE_PORT: 27017
+      DATABASE_NAME: ${MONGODB_DATABASE}
+      DATABASE_USERNAME: ${MONGODB_USERNAME}
+      DATABASE_PASSWORD: ${MONGODB_PASSWORD}
+      DATABASE_AUTHENTICATION_DATABASE: ${MONGODB_DATABASE}
+      DATABASE_SSL: 'false'
     networks:
       - front
       - back

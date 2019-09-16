@@ -12,6 +12,7 @@ Docker-compose script what runs web application stack with few command lines!
 |[mariadb](https://hub.docker.com/_/mariadb "mariadb on docker hub")|SQL database|
 |[mongo](https://hub.docker.com/_/mongo "mongo on docker hub")|Document database|
 |[express](https://www.npmjs.com/package/express-generator "express-generator on npm")|Basic NodeJS Express application template|
+|[strapi](https://github.com/strapi/strapi "strapi on github")|open-source headless CMS to build powerful APIs with no effort|
 |\**[adminer](https://hub.docker.com/_/adminer "adminer on docker hub")*|Simple SQL database management Web UI|
 |\**[mongo-express](https://hub.docker.com/_/mongo-express "mongo-express on docker hub")* |Simple document database management Web UI|
 
@@ -103,6 +104,7 @@ Environment file helps to configure services base options:
 - MONGODB_USERNAME - non-root user name
 - MONGODB_PASSWORD - non-root user password
 - MONGODB_EXPRESS_PORT - public port for mongo-express
+- STRAPI_PORT - public Strapi port
 
 If you changes environment after service start, you need stop and rebuild changed containers, e.g.:
 ```bash
