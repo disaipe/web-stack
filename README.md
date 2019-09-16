@@ -97,9 +97,11 @@ Environment file helps to configure services base options:
 - MARIADB_PASSWORD - database user password
 - MARIADB_ADMINER_PORT - public port for adminer
 - MONGODB_VERSION - mongodb version from hub tags
-- MONGODB_ROOT_NAME - mongodb username
+- MONGODB_ROOT_USERNAME - mongodb username
 - MONGODB_ROOT_PASSWORD - mongodb user password
-- MONGO_INITDB_DATABASE - mongodb database name
+- MONGODB_DATABASE - mongodb database name
+- MONGODB_USERNAME - non-root user name
+- MONGODB_PASSWORD - non-root user password
 - MONGODB_EXPRESS_PORT - public port for mongo-express
 
 If you changes environment after service start, you need stop and rebuild changed containers, e.g.:
