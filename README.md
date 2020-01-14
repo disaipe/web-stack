@@ -9,7 +9,8 @@ Docker-compose script what runs web application stack with few command lines!
 |[nginx](https://hub.docker.com/_/nginx "nginx on docker hub")|Nginx web server|
 |[httpd](https://hub.docker.com/_/httpd "httpd on docker hub")|Apache web server|
 |[php-fpm](https://hub.docker.com/_/php "php-fpm on docker hub")|PHP FPM version|
-|[mariadb](https://hub.docker.com/_/mariadb "mariadb on docker hub")|SQL database|
+|[mariadb](https://hub.docker.com/_/mariadb "mariadb on docker hub")|MariaDB database|
+|[mysql](https://hub.docker.com/_/mysql "mysql on docker hub")|MySQL database|
 |[mongo](https://hub.docker.com/_/mongo "mongo on docker hub")|Document database|
 |[express](https://www.npmjs.com/package/express-generator "express-generator on npm")|Basic NodeJS Express application template|
 |[strapi](https://github.com/strapi/strapi "strapi on github")|open-source headless CMS to build powerful APIs with no effort|
@@ -91,12 +92,16 @@ Environment file helps to configure services base options:
 - HTTPD_VERSION - httpd version from hub tags (*latest* as default)
 - PHP_VERSION - php version from hub tags
 - NODE_VERSION - NodeJS version from hub tags
+- MYSQL_VERSION - mysql version from hub tags
+- MYSQL_ROOT_PASSWORD - default root password for mariadb
+- MYSQL_DATABASE - database name
+- MYSQL_USER - database user name
+- MYSQL_PASSWORD - database user password
 - MARIADB_VERSION - mariadb version from hub tags
 - MARIADB_ROOT_PASSWORD - default root password for mariadb
 - MARIADB_DATABASE - database name
 - MARIADB_USER - database user name
 - MARIADB_PASSWORD - database user password
-- MARIADB_ADMINER_PORT - public port for adminer
 - MONGODB_VERSION - mongodb version from hub tags
 - MONGODB_ROOT_USERNAME - mongodb username
 - MONGODB_ROOT_PASSWORD - mongodb user password
@@ -104,6 +109,7 @@ Environment file helps to configure services base options:
 - MONGODB_USERNAME - non-root user name
 - MONGODB_PASSWORD - non-root user password
 - MONGODB_EXPRESS_PORT - public port for mongo-express
+- ADMINER_PORT - public port for adminer
 - STRAPI_PORT - public Strapi port
 
 If you changes environment after service start, you need stop and rebuild changed containers, e.g.:

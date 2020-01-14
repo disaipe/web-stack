@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
 		libfreetype6-dev \
 	&& docker-php-ext-configure zip --with-libzip \
 	&& docker-php-ext-install zip \
-	&& docker-php-ext-install mysqli \
+	&& docker-php-ext-install pdo pdo_mysql mysqli \
 	&& docker-php-ext-configure gd \
 		--with-gd \
 		--with-webp-dir \
